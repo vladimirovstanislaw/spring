@@ -20,3 +20,14 @@ public class ConfigurableMessageProvider implements MessageProvider {
 	}
 
 }
+
+/*
+	
+cd C:/Projects/spring.me
+git init
+git add .
+git commit -m "first commit"
+git remote add origin git@github.com:vladimirovstanislaw/spring.git
+git push -u origin master
+
+*/

@@ -1,6 +1,6 @@
 package method.injections.lookupmethod;
 
-public class StandartLookupDemoBean implements DemoBean {
+public class StandardLookupDemoBean implements DemoBean {
 	private MyHelper myHelper;
 
 	public void setMyHelper(MyHelper myHelper) {
