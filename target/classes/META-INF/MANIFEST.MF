@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: setter_injection
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: zstan
+Implementation-Vendor-Id: spring
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring.me
+Created-By: Maven Integration for Eclipse
+
