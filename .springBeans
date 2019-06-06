@@ -8,6 +8,7 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/main/resources/META-INF/spring/app-context-xml.xml</config>
+		<config>src/main/resources/META-INF/spring/app-context-method-injection.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
