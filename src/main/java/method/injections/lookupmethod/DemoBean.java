@@ -5,3 +5,4 @@ public interface DemoBean {
 
 	void someOperation();
 }
+

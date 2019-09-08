@@ -23,9 +23,10 @@ public class ConfigurableMessageProvider implements MessageProvider {
 
 /*
 	
-cd C:/Projects/spring.me
+cd /c/Users/svladimirov/eclipse-workspace/spring/spring
+
 git add .
-git commit -m "first commit"
+git commit -m "4th chapter started, yuhooo"
 
 git push -u origin master
 
