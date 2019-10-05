@@ -1,9 +1,6 @@
-package aop;
+package aop.around;
 
 import org.springframework.aop.framework.ProxyFactory;
-
-import aop.around.ProfilingInterceptor;
-import aop.around.WorkerBean;
 
 public class ProfilingExample {
 	public static void main(String[] args) {
