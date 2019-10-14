@@ -20,7 +20,7 @@ public class DestructiveBean implements InitializingBean {
 		DestructiveBean bean=(DestructiveBean) ctx.getBean("destructiveBean");
 		System.out.println("Calling destroy");
 		ctx.destroy();
-		System.out.println("Calling destroy");
+		System.out.println("Calling destroy"); 
 	}
 
 	@Override
