@@ -9,6 +9,8 @@ import javax.sql.DataSource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import jdbc.Contact;
@@ -24,12 +26,17 @@ public class JdbcContactDao implements ContactDao {
 
 	private SelectContactByFirstName selectContactByFirstName;
 
+	private UpdateContact updateContact;
+
+	private InsertContact insertContact;
+
 	@Resource(name = "dataSource")
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 		this.selectAllContacts = new SelectAllContacts(dataSource);
 		this.selectContactByFirstName = new SelectContactByFirstName(dataSource);
-
+		this.updateContact = new UpdateContact(dataSource);
+		this.insertContact = new InsertContact(dataSource);
 	}
 
 	public DataSource getDataSource() {
@@ -63,7 +70,16 @@ public class JdbcContactDao implements ContactDao {
 
 	@Override
 	public void insert(Contact contact) {
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("first_name", contact.getFirstName());
+		paramMap.put("last_name", contact.getLastName());
+		paramMap.put("birth_date", contact.getBirthDate());
+		KeyHolder keyHolder = new GeneratedKeyHolder();
 
+		insertContact.updateByNamedParam(paramMap, keyHolder);
+		contact.setId(keyHolder.getKey().longValue());
+
+		log.info("New contact inserted with id: " + contact.getId());
 	}
 
 	@Override
@@ -73,7 +89,14 @@ public class JdbcContactDao implements ContactDao {
 
 	@Override
 	public void update(Contact contact) {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("first_name", contact.getFirstName());
+		paramMap.put("last_name", contact.getLastName());
+		paramMap.put("birth_date", contact.getBirthDate());
+		paramMap.put("id", contact.getId());
+		updateContact.updateByNamedParam(paramMap);
 
+		log.info("Existing contact updated with id: " + contact.getId());
 	}
 
 }

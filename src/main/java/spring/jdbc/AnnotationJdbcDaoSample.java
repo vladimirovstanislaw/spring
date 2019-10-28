@@ -1,5 +1,7 @@
 package spring.jdbc;
 
+import java.sql.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -12,14 +14,15 @@ public class AnnotationJdbcDaoSample {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
 		ctx.load("classpath:META-INF/spring/spring-jdbc-embded-db-app-context.xml");
 		ctx.refresh();
-
 		ContactDao contactDao = ctx.getBean("contactDao", ContactDao.class);
 
-		List<Contact> contacts = contactDao.findAll();
-		listContacts(contacts);
+		Contact contact = new Contact();
+		contact.setFirstName("Rod");
+		contact.setLastName("Johnson");
+		contact.setBirthDate(new Date((new GregorianCalendar(2001, 10, 1)).getTime().getTime()));
+		contactDao.insert(contact);
 
-		List<Contact> contactsByName = contactDao.findByFirstName("Chris");
-		listContacts(contactsByName);
+		listContacts(contactDao.findAll());
 	}
 
 	public static void listContacts(List<Contact> contacts) {
