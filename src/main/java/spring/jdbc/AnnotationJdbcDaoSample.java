@@ -1,6 +1,7 @@
 package spring.jdbc;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -17,10 +18,23 @@ public class AnnotationJdbcDaoSample {
 		ContactDao contactDao = ctx.getBean("contactDao", ContactDao.class);
 
 		Contact contact = new Contact();
-		contact.setFirstName("Rod");
-		contact.setLastName("Johnson");
-		contact.setBirthDate(new Date((new GregorianCalendar(2001, 10, 1)).getTime().getTime()));
-		contactDao.insert(contact);
+		contact.setFirstName("Michael");
+		contact.setLastName("Jackson");
+		contact.setBirthDate(new Date((new GregorianCalendar(1964, 10, 1)).getTime().getTime()));
+
+		List<ContactTelDetail> contactTelDetails = new ArrayList<>();
+		ContactTelDetail contactTelDetail = new ContactTelDetail();
+		contactTelDetail.setTelType("Home");
+		contactTelDetail.setTelNumber("11111111");
+		contactTelDetails.add(contactTelDetail);
+		contactTelDetail = new ContactTelDetail();
+		contactTelDetail.setTelType("Mobile");
+		contactTelDetail.setTelNumber("22222222");
+
+		contactTelDetails.add(contactTelDetail);
+		contact.setContactTelDetails(contactTelDetails);
+
+		contactDao.insertWithDetail(contact);
 
 		listContacts(contactDao.findAll());
 	}
