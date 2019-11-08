@@ -11,7 +11,9 @@ import jdbc.Contact;
 import jdbc.ContactTelDetail;
 
 public class AnnotationJdbcDaoSample {
+
 	public static void main(String[] args) {
+
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
 		ctx.load("classpath:META-INF/spring/spring-jdbc-embded-db-app-context.xml");
 		ctx.refresh();
@@ -27,10 +29,10 @@ public class AnnotationJdbcDaoSample {
 		contactTelDetail.setTelType("Home");
 		contactTelDetail.setTelNumber("11111111");
 		contactTelDetails.add(contactTelDetail);
+
 		contactTelDetail = new ContactTelDetail();
 		contactTelDetail.setTelType("Mobile");
 		contactTelDetail.setTelNumber("22222222");
-
 		contactTelDetails.add(contactTelDetail);
 		contact.setContactTelDetails(contactTelDetails);
 
