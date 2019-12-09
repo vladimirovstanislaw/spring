@@ -18,6 +18,7 @@ import org.springframework.stereotype.Repository;
 
 import jdbc.Contact;
 import jdbc.ContactTelDetail;
+import stored.function.StoredFunctionFirstNameById;
 
 @Repository("contactDao")
 public class JdbcContactDao implements ContactDao {
@@ -35,6 +36,8 @@ public class JdbcContactDao implements ContactDao {
 	private InsertContact insertContact;
 
 	private InsertContactTelDetail insertContactTelDetail;
+
+	private StoredFunctionFirstNameById storedFunctionFirstNameById;
 
 	@Resource(name = "dataSource")
 	public void setDataSource(DataSource dataSource) {
@@ -64,8 +67,8 @@ public class JdbcContactDao implements ContactDao {
 
 	@Override
 	public String findFirstNameById(Long id) {
-
-		return null;
+		List<String> result = storedFunctionFirstNameById.execute(id);
+		return result.get(0);
 	}
 
 	@Override

@@ -12,10 +12,10 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.url}"
 		p:username="${jdbc.username}" p:password="${jdbc.password}" />
-	
+
 	<context:property-placeholder
 		location="classpath:META-INF/config/jdbc.properties" />
-	
+
 	<context:component-scan
 		base-package="spring.jdbc" />
 </beans>
