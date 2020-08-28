@@ -1,6 +1,5 @@
 package aop.composable.pointcuts;
 
-import static org.hamcrest.CoreMatchers.startsWith;
 
 import java.lang.reflect.Method;
 

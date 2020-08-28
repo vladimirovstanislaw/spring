@@ -5,8 +5,6 @@ import java.io.File;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import sun.security.krb5.internal.crypto.Des;
-
 public class DestructiveBean implements InitializingBean {
 
 	private File file;

@@ -8,7 +8,6 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.MutablePropertySources;
 
-import com.sun.xml.internal.ws.api.ha.HaInfo;
 
 public class EnvironmentSample {
 
