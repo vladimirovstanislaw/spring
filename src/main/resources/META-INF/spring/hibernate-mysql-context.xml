@@ -17,6 +17,7 @@
  http://www.springframework.org/schema/util/spring-util.xsd
  http://www.springframework.org/schema/context
  http://www.springframework.org/schema/context/spring-context.xsd">
+    
     <jdbc:embedded-database id="dataSourceOld" type="H2">
         <jdbc:script location="classpath:META-INF/sql/schema.sql"/>
         <jdbc:script location="classpath:META-INF/sql/test-data.sql"/>
